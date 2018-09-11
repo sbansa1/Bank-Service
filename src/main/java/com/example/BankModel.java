@@ -46,7 +46,7 @@ public class BankModel {
         this.bank_branch = bank_branch;
     }
 
-    public int getBank_id() {
+    public long getBank_id() {
         return bank_id;
     }
 
