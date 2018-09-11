@@ -7,7 +7,7 @@
     <artifactId>bank-service</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>bank-service</name>
+    <name>bank-service-0012</name>
 
     <dependencyManagement>
         <dependencies>
