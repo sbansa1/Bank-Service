@@ -13,7 +13,7 @@ import java.net.URI;
  */
 public class Main {
     // Base URI the Grizzly HTTP server will listen on
-    public static final String BASE_URI = "http://bank-service-0012.herokuapp.com/";
+    public static final String BASE_URI = "bank-service-0012.herokuapp.com/";
 
     /**
      * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
@@ -40,9 +40,9 @@ public class Main {
                 + "%sapplication.wadl\nHit enter to stop it...", BASE_URI));
         System.in.read();
 
-//        BankService bs = new BankService();
-//        BankDetailService bm = new BankDetailService();
-//        server.stop();
+    BankService bs = new BankService();
+BankDetailService bm = new BankDetailService();
+   server.stop();
     }
 }
 

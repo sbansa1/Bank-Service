@@ -18,7 +18,7 @@ public class BankService {
 
     @GET
     @Path("/banks/{IfscCode}")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_XML)
     public BankModel getBankDetails(@PathParam("IfscCode") String ifsc_Code) {
 
         //int code = Integer.IfscCode;
@@ -34,6 +34,8 @@ public class BankService {
         } catch (SQLException e) {
             System.out.println(e.getSQLState());
         }
+
+        System.out.println(bank);
         return bank;
     }
 }

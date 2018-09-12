@@ -15,7 +15,7 @@ public class BankDetailService {
 
     @GET
     @Path("bankDetails/{bank_name}/{bank_city}")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_XML)
     public List<BankModel> getBankBranchDetails(@PathParam("bank_name") String bank_name, @PathParam("bank_city") String bank_city) {
 
         List<BankModel> banklist = new ArrayList <>();

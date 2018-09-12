@@ -15,7 +15,7 @@ public class BankDatabase {
 
     public BankDatabase() {
         try {
-            String connectionURL = "jdbc:mysql://localhost:3306/Bank";
+            String connectionURL = "jdbc:mysql://localhost:3306/Bank?useSSL=false";
             Driver d = new Driver();
             DriverManager.registerDriver(d);
             Properties p = new Properties();
@@ -55,6 +55,7 @@ public class BankDatabase {
             System.out.println(e);
         }
 
+
         return bm;
     }
 
@@ -81,30 +82,5 @@ public class BankDatabase {
         return list;
     }
 
-
-    public Map<Long, BankModel> allgetBankDetails() {
-
-        ArrayList <BankModel> list = new ArrayList <>();
-        BankModel bm;
-
-        try {
-            Statement st = connection.createStatement();
-            ResultSet rs = st.executeQuery("Select * from bank_details");
-
-
-            while (rs.next()) {
-                bm = new BankModel(rs.getString("bank_name"), rs.getString("bank_city"), rs.getString("bank_branch"), rs.getString("bank_state"), rs.getString("bank_district"), rs.getString("bank_address"));
-                list.add(bm);
-
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-
-        return (Map <Long, BankModel>) list;
-
-
-    }
 
 }
