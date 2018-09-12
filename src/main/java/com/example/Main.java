@@ -7,42 +7,52 @@ import org.glassfish.jersey.server.ResourceConfig;
 import java.io.IOException;
 import java.net.URI;
 
-/**
- * Main class.
- *
- */
+
+import javax.ws.rs.core.UriBuilder;
+
 public class Main {
-    // Base URI the Grizzly HTTP server will listen on
-    public static final String BASE_URI = "bank-service-0012.herokuapp.com/";
 
-    /**
-     * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
-     * @return Grizzly HTTP server.
-     */
-    public static HttpServer startServer() {
-        // create a resource config that scans for JAX-RS resources and providers
-        // in com.example package
-        final ResourceConfig rc = new ResourceConfig().packages("com.example");
-
-        // create and start a new instance of grizzly http server
-        // exposing the Jersey application at BASE_URI
-        return GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), rc);
+    private static URI getBaseURI(String hostname, int port) {
+        return UriBuilder.fromUri("http://0.0.0.0/").port(port).build();
     }
 
-    /**
-     * Main method.
-     * @param args
-     * @throws IOException
-     */
-    public static void main(String[] args) throws IOException {
-        final HttpServer server = startServer();
-        System.out.println(String.format("Jersey app started with WADL available at "
-                + "%sapplication.wadl\nHit enter to stop it...", BASE_URI));
-        System.in.read();
+    protected static HttpServer startServer(URI uri) throws IOException {
+        System.out.println("Starting grizzly...");
+        ResourceConfig rc = new ResourceConfig().packages("com.example");
+        return GrizzlyHttpServerFactory.createHttpServer(uri, rc);
+    }
 
-    BankService bs = new BankService();
-BankDetailService bm = new BankDetailService();
-   server.stop();
+    public static void main(String[] args) throws IOException {
+        String hostname = System.getenv("HOSTNAME");
+        if (hostname == null) {
+            hostname = "localhost";
+        }
+
+        boolean isOnLocal = false;
+        String port = System.getenv("PORT");
+        if (port == null) {
+            isOnLocal = true;
+            port = "9998";
+        }
+
+        URI uri = getBaseURI(hostname, Integer.valueOf(port));
+
+        HttpServer httpServer = startServer(uri);
+        System.out.println(String.format("Jersey app started with WADL available at "
+                + "%sapplication.wadl\nHit enter to stop it...", uri, uri));
+        if (isOnLocal) {
+            System.in.read();
+            httpServer.stop();
+        } else {
+            while (true) {
+                System.in.read();
+            }
+        }
+
     }
 }
+
+
+
+
 
