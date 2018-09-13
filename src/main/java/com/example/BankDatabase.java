@@ -15,12 +15,15 @@ public class BankDatabase {
 
     public BankDatabase() {
         try {
+
+
             String connectionURL = "jdbc:mysql://localhost:3306/Bank?useSSL=false";
+            connectionURL = "jdbc:mysql://us-cdbr-iron-east-01.cleardb.net:3306/heroku_77529bb8a159cbb?useSSL=false";
             Driver d = new Driver();
             DriverManager.registerDriver(d);
             Properties p = new Properties();
-            p.setProperty("user", "root");
-            p.setProperty("password", "Root@0012");
+            p.setProperty("user", "b15e88e572c814");
+            p.setProperty("password", "a39ed036");
 
             this.connection = d.connect(connectionURL, p);
         } catch (Exception e) {
