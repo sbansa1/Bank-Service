@@ -8,8 +8,11 @@ import java.io.IOException;
 import java.net.URI;
 
 
+import javax.ws.rs.Path;
 import javax.ws.rs.core.UriBuilder;
 
+
+@Path("/")
 public class Main {
 
     private static URI getBaseURI(String hostname, int port) {
