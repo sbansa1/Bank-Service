@@ -7,7 +7,8 @@
     <session-factory>
         <!-- Database connection settings -->
         <property name='connection.driver_class'>com.mysql.jdbc.Driver</property>
-        <property name='connection.url'>jdbc:mysql://us-cdbr-iron-east-01.cleardb.net:3306/heroku_77529bb8a159cbb?useSSL=false"</property>
+        <!--property name='connection.url'>jdbc:mysql://localhost:3306/bank?useSSL=false</property-->
+        <property name='connection.url'>jdbc:mysql://us-cdbr-iron-east-01.cleardb.net:3306/heroku_77529bb8a159cbb?useSSL=false</property>
         <property name='connection.username'>root</property>
         <property name='connection.password'>Root@0012</property>
 
