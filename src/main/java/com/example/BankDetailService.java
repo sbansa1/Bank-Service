@@ -19,7 +19,7 @@ public class BankDetailService {
     public List<BankModel> getBankBranchDetails(@PathParam("bank_name") String bank_name, @PathParam("bank_city") String bank_city) {
 
         List<BankModel> banklist = new ArrayList <>();
-        BankDatabase ds = new BankDatabase();
+        BankDatabase1 ds = new BankDatabase1();
         banklist =  ds.getBankDetails(bank_city,bank_name);
         return banklist;
     }
