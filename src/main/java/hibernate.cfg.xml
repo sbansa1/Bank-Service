@@ -9,8 +9,8 @@
         <property name='connection.driver_class'>com.mysql.jdbc.Driver</property>
         <!--property name='connection.url'>jdbc:mysql://localhost:3306/bank?useSSL=false</property-->
         <property name='connection.url'>jdbc:mysql://us-cdbr-iron-east-01.cleardb.net:3306/heroku_77529bb8a159cbb?useSSL=false</property>
-        <property name='connection.username'>root</property>
-        <property name='connection.password'>Root@0012</property>
+        <property name='connection.username'>b15e88e572c814</property>
+        <property name='connection.password'>a39ed036</property>
 
         <!-- JDBC connection pool (use the built-in) -->
         <property name='connection.pool_size'>1</property>
