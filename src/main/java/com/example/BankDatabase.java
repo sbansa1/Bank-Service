@@ -50,7 +50,7 @@ public class BankDatabase {
             ResultSet rs = st.executeQuery("Select * from  bank_details where bank_ifsc = '" + ifscCode + "'");
 
             while (rs.next()) {
-                bm = new BankModel(rs.getString("bank_name"), rs.getString("bank_city"), rs.getString("bank_branch"), rs.getString("bank_state"), rs.getString("bank_district"), rs.getString("bank_address"));
+                bm = new BankModel(rs.getInt("bank_id"),rs.getString("bank_name"), rs.getString("bank_city"), rs.getString("bank_branch"), rs.getString("bank_state"), rs.getString("bank_district"), rs.getString("bank_address"));
             }
 
 
@@ -73,7 +73,7 @@ public class BankDatabase {
 
 
             while (rs.next()) {
-                bm = new BankModel(rs.getString("bank_name"), rs.getString("bank_city"), rs.getString("bank_branch"), rs.getString("bank_state"), rs.getString("bank_district"), rs.getString("bank_address"));
+                bm = new BankModel(rs.getInt("bank_id"),rs.getString("bank_name"), rs.getString("bank_city"), rs.getString("bank_branch"), rs.getString("bank_state"), rs.getString("bank_district"), rs.getString("bank_address"));
                 list.add(bm);
 
             }
@@ -87,3 +87,4 @@ public class BankDatabase {
 
 
 }
+
